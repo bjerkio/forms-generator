@@ -15,8 +15,11 @@ import { format } from 'date-fns';
 <Box sx={{ my: 6 }}>
   <Box>{props.customerName}</Box>
   <Box>{props.customerAddress}</Box>
-
-  <Box sx={{ textAlign: 'right' }}>Oslo, {format(props.date, 'd. MMM. YYYY')}</Box>
+  {props.date && (
+    <Box sx={{ textAlign: 'right' }}>
+      Oslo, {format(props.date, 'd. MMM. yyyy')}
+    </Box>
+  )}
 </Box>
 
 # Oppdragsbekreftelse og Avtale om leveranse av konsulenttjenester

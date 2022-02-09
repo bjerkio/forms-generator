@@ -1,8 +1,9 @@
+import { format } from 'date-fns';
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Box, Field, Button } from 'theme-ui';
+import { Field, Button, Grid, Box } from 'theme-ui';
 
 export interface ConsultancyAgreementProps {
   agreementName: string;
@@ -17,7 +18,7 @@ export interface ConsultancyAgreementProps {
   startDate: string;
   scope: string;
   duration: string;
-  date: Date;
+  date: string;
 }
 
 const ConsultancyAgreement: NextPage = () => {
@@ -36,7 +37,7 @@ const ConsultancyAgreement: NextPage = () => {
         'Det er vanskelig å si noe om oppdragets omfang. Bjerk vil holde kunde løpende informert om medgått tid.',
       duration:
         'Oppdraget trer i kraft fra oppstartsdato og løper til det sies opp av én av partene. Partene kan skriftlig si opp oppdraget med en gjensidig oppsigelsesfrist på én måned.',
-      date: new Date(),
+      date: format(new Date(), 'yyyy-MM-dd'),
     },
   });
 
@@ -48,26 +49,30 @@ const ConsultancyAgreement: NextPage = () => {
 
   return (
     <Box as="form" onSubmit={handleSubmit(onSubmit)}>
-      <Field label="Oppdragets navn" {...register('agreementName')} />
-      <Field
-        label="Oppdragets ref. nr. hos Bjerk"
-        {...register('referenceId')}
-      />
-      <Field label="Kundens navn" {...register('customerName')} />
-      <Field label="Kundens adresse" {...register('customerAddress')} />
-      <Field
-        label="Faktureringsadresse"
-        {...register('customerInvoiceAddress')}
-      />
-      <Field label="Kundens kontaktperson" {...register('customerContact')} />
-      <Field label="Bjerks kontaktperson" {...register('ourContact')} />
-      <Field label="Oppdraget gjelder" {...register('description')} />
-      <Field label="Honorar" {...register('hourlyRate')} />
-      <Field label="Oppstartsdato" {...register('startDate')} />
-      <Field label="Oppdragets omfang" {...register('scope')} />
-      <Field label="Løpetid - Oppsigelse" {...register('duration')} />
-      <Field label="Kontraktsdato" {...register('date')} />
-      <Button type="submit">Lag avtale</Button>
+      <Grid columns="1fr 1fr" gap="3" sx={{ mb: 4 }}>
+        <Field label="Oppdragets navn" {...register('agreementName')} />
+        <Field
+          label="Oppdragets ref. nr. hos Bjerk"
+          {...register('referenceId')}
+        />
+        <Field label="Kundens navn" {...register('customerName')} />
+        <Field label="Kundens adresse" {...register('customerAddress')} />
+        <Field
+          label="Faktureringsadresse"
+          {...register('customerInvoiceAddress')}
+        />
+        <Field label="Kundens kontaktperson" {...register('customerContact')} />
+        <Field label="Bjerks kontaktperson" {...register('ourContact')} />
+        <Field label="Oppdraget gjelder" {...register('description')} />
+        <Field label="Honorar" {...register('hourlyRate')} />
+        <Field label="Oppstartsdato" {...register('startDate')} />
+        <Field label="Oppdragets omfang" {...register('scope')} />
+        <Field label="Løpetid - Oppsigelse" {...register('duration')} />
+        <Field label="Kontraktsdato" type="date" {...register('date')} />
+      </Grid>
+      <Box>
+        <Button type="submit">Lag avtale</Button>
+      </Box>
     </Box>
   );
 };

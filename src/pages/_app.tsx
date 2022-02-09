@@ -31,7 +31,13 @@ function App({ Component, pageProps }: AppProps) {
         router.query.data.toString(),
         'base64',
       ).toString('utf-8');
-      setDataProps(JSON.parse(dataFromBase64));
+
+      const data = JSON.parse(dataFromBase64);
+
+      setDataProps({
+        ...data,
+        date: data.date ? new Date(data.date) : new Date(),
+      });
     }
   }, [setDataProps, router.query]);
 
