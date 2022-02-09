@@ -11,4 +11,5 @@ const withMDX = require('@next/mdx')({
 module.exports = withMDX({
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   reactStrictMode: true,
+  basePath: process.env.BASEPATH ?? '/',
 });
