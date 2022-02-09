@@ -2,6 +2,7 @@ import KeyContent from '../../components/key-content';
 import SignatureField from '../../components/signature-field';
 import { Logo } from '../../components/logo';
 import { Text, Box } from 'theme-ui';
+import { format } from 'date-fns';
 
 <Box sx={{ textAlign: 'right', my: 3, fontSize: 1 }}>
   <Logo sx={{ height: '30px', width: 'auto' }} />
@@ -15,7 +16,7 @@ import { Text, Box } from 'theme-ui';
   <Box>{props.customerName}</Box>
   <Box>{props.customerAddress}</Box>
 
-  <Box sx={{ textAlign: 'right' }}>Oslo, 30. nov. 2021</Box>
+  <Box sx={{ textAlign: 'right' }}>Oslo, {format(props.date, 'd. MMM. YYYY')}</Box>
 </Box>
 
 # Oppdragsbekreftelse og Avtale om leveranse av konsulenttjenester

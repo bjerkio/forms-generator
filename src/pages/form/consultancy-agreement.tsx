@@ -17,6 +17,7 @@ export interface ConsultancyAgreementProps {
   startDate: string;
   scope: string;
   duration: string;
+  date: Date;
 }
 
 const ConsultancyAgreement: NextPage = () => {
@@ -35,6 +36,7 @@ const ConsultancyAgreement: NextPage = () => {
         'Det er vanskelig å si noe om oppdragets omfang. Bjerk vil holde kunde løpende informert om medgått tid.',
       duration:
         'Oppdraget trer i kraft fra oppstartsdato og løper til det sies opp av én av partene. Partene kan skriftlig si opp oppdraget med en gjensidig oppsigelsesfrist på én måned.',
+      date: new Date(),
     },
   });
 
@@ -64,6 +66,7 @@ const ConsultancyAgreement: NextPage = () => {
       <Field label="Oppstartsdato" {...register('startDate')} />
       <Field label="Oppdragets omfang" {...register('scope')} />
       <Field label="Løpetid - Oppsigelse" {...register('duration')} />
+      <Field label="Kontraktsdato" {...register('date')} />
       <Button type="submit">Lag avtale</Button>
     </Box>
   );
