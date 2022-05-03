@@ -1,13 +1,8 @@
-import Head from 'next/head';
 import KeyContent from '../../components/key-content';
 import SignatureField from '../../components/signature-field';
 import { Logo } from '../../components/logo';
 import { Text, Box } from 'theme-ui';
 import { format } from 'date-fns';
-
-<Head>
-  <title>{format(props.date, 'yyyy-MM-dd')} – {props.referenceId} – {props.agreementName}</title>
-</Head>
 
 <Box sx={{ textAlign: 'right', my: 3, fontSize: 1 }}>
   <Logo sx={{ height: '30px', width: 'auto' }} />

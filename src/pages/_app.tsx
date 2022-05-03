@@ -4,6 +4,7 @@ import { theme } from '@bjerk/brand';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
+import { format } from 'date-fns';
 
 const policyTheme = merge(theme, {
   styles: {
@@ -22,7 +23,7 @@ const policyTheme = merge(theme, {
 });
 
 function App({ Component, pageProps }: AppProps) {
-  const [dataProps, setDataProps] = useState({});
+  const [dataProps, setDataProps] = useState<any>({});
   const router = useRouter();
 
   useEffect(() => {
@@ -54,6 +55,15 @@ function App({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
+        <title>
+          {[
+            dataProps.date && format(dataProps.date, 'yyyy-MM-dd'),
+            dataProps.referenceId && dataProps.referenceId,
+            dataProps.agreementName && dataProps.agreementName,
+          ]
+            .filter(p => p)
+            .join(' – ')}
+        </title>
       </Head>
       <Container sx={{ width: 'readable', p: 4 }}>
         <Component {...pageProps} {...dataProps} />
