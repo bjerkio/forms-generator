@@ -29,7 +29,7 @@ const ConsultancyAgreement: NextPage = () => {
     formState: { errors },
   } = useForm<ConsultancyAgreementProps>({
     defaultValues: {
-      ourContact: 'Simen A. W. Olsen',
+      ourContact: 'Thomas Brustad',
       customerInvoiceAddress: 'Samme som kundens adresse',
       hourlyRate: '1 650 NOK',
       startDate: 'Oppstart etter nærmere avtale',
