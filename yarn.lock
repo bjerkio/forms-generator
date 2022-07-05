@@ -307,10 +307,10 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
-"@bjerk/brand@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@bjerk/brand/-/brand-1.0.1.tgz#499e18557f07111bde37967f1b80ad2d4a5d3b8f"
-  integrity sha512-Jh2l5/EX0qn6dlSCKds9RCtNcw2uRsr9SM894rLZnMfm9uRPAV7RTETBS/PUsXGd5fRMMQR/cM9Y4MYxvRur6g==
+"@bjerk/brand@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@bjerk/brand/-/brand-2.0.0.tgz#3d93efe85ed61bf1b6441687b3bf7e1f6fd2e726"
+  integrity sha512-RrdYMLMNj7SlkI4mjEtUOKjVLAwGxcw7WM9NEfBMxYB1fkeWjjDCLRUBi2RoBCaosD4A2rrq40uTt+7azugc2A==
 
 "@bjerk/eslint-config@^1.0.0":
   version "1.0.0"
